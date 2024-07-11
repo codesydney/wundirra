@@ -13,6 +13,9 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      screens: {
+        xs: '500px', // Add your custom breakpoint here
+      },
       colors: {
         'custom-dark': '#000000',
         'custom-light': '#ffffff',

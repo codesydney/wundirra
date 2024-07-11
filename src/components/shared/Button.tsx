@@ -1,4 +1,18 @@
-export default function Button({ children, type, handleClick, classOveride }) {
+import { FC, ReactNode, MouseEventHandler } from 'react'
+
+type ButtonProps = {
+  children: ReactNode
+  type?: string
+  handleClick: MouseEventHandler<HTMLButtonElement> // Ensure handleClick is a function for mouse events on button elements
+  classOverride?: string
+}
+
+const Button: FC<ButtonProps> = ({
+  children,
+  type,
+  handleClick,
+  classOverride,
+}) => {
   const baseClasses =
     'p-2 px-4 rounded text-custom-light group transition-all duration-200'
 
@@ -9,7 +23,7 @@ export default function Button({ children, type, handleClick, classOveride }) {
         className={`
             ${baseClasses}
              border-2 border-solid border-wun-primary text-wun-primary hover:bg-wun-primary hover:text-custom-light hover:border-transparent
-            ${classOveride || ''}
+            ${classOverride || ''}
           `}
       >
         {children}
@@ -23,10 +37,12 @@ export default function Button({ children, type, handleClick, classOveride }) {
       className={`
             ${baseClasses}
             bg-wun-primary/80 hover:bg-wun-primary
-            ${classOveride || ''}
+            ${classOverride || ''}
           `}
     >
       {children}
     </button>
   )
 }
+
+export default Button
