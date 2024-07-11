@@ -8,7 +8,7 @@ export default function HeroSection() {
     <SectionWrapper customClass="pb-0 md:pb-0 lg:pb-0">
       <div className="mt-8 md:mt-12 relative xl:mt-20">
         <div className="max-w-[800px] mx-auto relative z-10">
-          <h1 className="text-center text-4xl font-semibold sm:text-5xl lg:text-6xl mb-6 capitalize">
+          <h1 className="text-center text-4xl font-semibold sm:text-5xl lg:text-6xl mb-6 capitalize drop-shadow-xl">
             <span className="bg-gradient-to-r from-wun-primary via-wun-primary via-20% to-custom-light bg-clip-text text-transparent">
               Driving positive
             </span>{' '}

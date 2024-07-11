@@ -102,7 +102,7 @@ const ExpertiseSection: FC = () => {
               </p>
             </div>
             <div className="self-start">
-              <LinkButton type="secondary" href="/">
+              <LinkButton classOverride="font-bold" type="secondary" href="/">
                 Lets Connect!
               </LinkButton>
             </div>
