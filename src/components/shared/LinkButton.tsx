@@ -32,6 +32,21 @@ const LinkButton: FC<LinkButtonProps> = ({
     )
   }
 
+  if (type === 'secondary') {
+    return (
+      <Link
+        href={href}
+        className={`
+              ${baseClasses}
+              text-wun-primary bg-custom-light hover:bg-custom-light/80
+              ${classOverride || ''}
+            `}
+      >
+        {children}
+      </Link>
+    )
+  }
+
   return (
     <Link
       href={href}
