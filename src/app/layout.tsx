@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/shared/header/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +18,10 @@ interface RootLayoutProps {
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} bg-custom-dark`}>
+        <Header />
+        <main>{children}</main>
+      </body>
     </html>
   )
 }
