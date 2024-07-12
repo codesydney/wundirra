@@ -16,7 +16,7 @@ const WhyChooseUsSection: FC = () => {
 
   return (
     <SectionWrapper>
-      <div className="grid md:grid-cols-2 gap-8 h-[800px]">
+      <div className="grid md:grid-cols-2 gap-8 h-full md:h-[800px]">
         <div className="relative flex items-center justify-center h-full">
           <Image
             src="/assets/wundirraLogo.png"
