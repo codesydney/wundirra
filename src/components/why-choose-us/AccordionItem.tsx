@@ -31,7 +31,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
           <FaChevronDown className="text-gray-500" />
         )}
       </button>
-      {isOpen && <div className="px-4 pb-4 text-gray-600">{item.content}</div>}
+      {isOpen && <div className="px-4 pb-4 text-white">{item.content}</div>}
     </div>
   )
 }
