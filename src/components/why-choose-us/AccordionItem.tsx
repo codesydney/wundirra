@@ -22,13 +22,13 @@ const AccordionItem: FC<AccordionItemProps> = ({
         onClick={toggleAccordion}
       >
         <span className="font-medium flex items-center">
-          <Icon className="w-5 h-5 mr-3 text-green-500" />
+          <Icon className="w-5 h-5 mr-3 text-wun-primary" />
           {item.title}
         </span>
         {isOpen ? (
-          <FaChevronUp className="text-gray-500" />
+          <FaChevronUp className="text-wun-primary" />
         ) : (
-          <FaChevronDown className="text-gray-500" />
+          <FaChevronDown className="text-wun-primary" />
         )}
       </button>
       {isOpen && <div className="px-4 pb-4 text-white">{item.content}</div>}
