@@ -37,6 +37,13 @@ const config: Config = {
       animation: {
         carouselSlide: 'carouselSlide 30s infinite linear',
       },
+      gridTemplateRows: {
+        '0': '0fr',
+        'single-row': '1fr',
+      },
+      transitionProperty: {
+        'accordion-item': 'grid-template-rows padding',
+      },
     },
   },
   plugins: [],
