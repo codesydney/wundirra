@@ -8,7 +8,7 @@ const contactSchema = yup.object().shape({
     .max(50, 'Name must be at most 50 characters'),
   email: yup.string().required('Email is required').email('Invalid email'),
   phone: yup.string(),
-  message: yup.string(),
+  message: yup.string().required('Message is required'),
 })
 
 export { contactSchema }

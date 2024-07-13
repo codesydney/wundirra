@@ -3,7 +3,7 @@ import { FC, ReactNode, MouseEventHandler } from 'react'
 type ButtonProps = {
   children: ReactNode
   type?: string
-  handleClick: MouseEventHandler<HTMLButtonElement>
+  handleClick?: MouseEventHandler<HTMLButtonElement>
   classOverride?: string
   isLoading?: boolean
 }

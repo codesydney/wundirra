@@ -1,14 +1,26 @@
 'use client'
 
 import { FC, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { BsSend } from 'react-icons/bs'
 import Button from '@/components/shared/Button'
+import { contactSchema } from '@/schema'
 
 const ContactSection: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const handleSubmit = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(contactSchema),
+  })
+
+  const onSubmit = async (formData: any) => {
+    console.info('Form data:', formData)
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
@@ -50,72 +62,96 @@ const ContactSection: FC = () => {
           </div>
 
           <div className="p-12 md:pl-8">
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
               <label className="form-control">
                 <div className="label">
                   <span className="label-text text-[16px] text-white">
-                    Name:
+                    Name <span className="text-wun-primary">*</span>
                   </span>
                 </div>
                 <input
                   type="text"
+                  {...register('name')}
                   placeholder="Your name"
-                  className="input input-bordered"
+                  className={`input input-bordered w-full ${
+                    errors.name
+                      ? 'border-2 border-wun-primary focus:border-transparent focus:outline-wun-primary focus:ring-2 focus:ring-wun-primary'
+                      : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white'
+                  } focus:outline-primary`}
                 />
-                <div className="label">
-                  <span className="label-text-alt">Bottom Left label</span>
-                </div>
+                {errors.name && (
+                  <div className="label">
+                    <span className="label-text-alt text-wun-primary">
+                      {errors.name.message}
+                    </span>
+                  </div>
+                )}
               </label>
 
               <label className="form-control">
                 <div className="label">
                   <span className="label-text text-[16px] text-white">
-                    Email:
+                    Email <span className="text-wun-primary">*</span>
                   </span>
                 </div>
                 <input
                   type="email"
+                  {...register('email')}
                   placeholder="example@email.com"
-                  className="input input-bordered"
+                  className={`input input-bordered w-full ${
+                    errors.email
+                      ? 'border-2 border-wun-primary focus:border-transparent focus:outline-wun-primary focus:ring-2 focus:ring-wun-primary'
+                      : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white'
+                  } focus:outline-primary`}
                 />
-                <div className="label">
-                  <span className="label-text-alt">Bottom Left label</span>
-                </div>
+                {errors.email && (
+                  <div className="label">
+                    <span className="label-text-alt text-wun-primary">
+                      {errors.email.message}
+                    </span>
+                  </div>
+                )}
               </label>
 
               <label className="form-control">
                 <div className="label">
                   <span className="label-text text-[16px] text-white">
-                    Phone number:
+                    Phone number
                   </span>
                 </div>
                 <input
                   type="tel"
+                  {...register('phone')}
                   placeholder="02 9999 9999"
-                  className="input input-bordered"
+                  className="input input-bordered w-full border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white"
                 />
-                <div className="label">
-                  <span className="label-text-alt">Bottom Left label</span>
-                </div>
               </label>
 
               <label className="form-control">
                 <div className="label">
                   <span className="label-text text-white text-[16px]">
-                    Message:
+                    Message <span className="text-wun-primary">*</span>
                   </span>
                 </div>
                 <textarea
-                  className="textarea textarea-bordered h-24"
-                  placeholder="Bio"
+                  {...register('message')}
+                  placeholder="Type your message here..."
+                  className={`textarea textarea-bordered h-24 ${
+                    errors.email
+                      ? 'border-2 border-wun-primary focus:border-transparent focus:outline-wun-primary focus:ring-2 focus:ring-wun-primary'
+                      : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white'
+                  } focus:outline-primary`}
                 ></textarea>
-                <div className="label">
-                  <span className="label-text-alt">Your bio</span>
-                </div>
+                {errors.message && (
+                  <div className="label">
+                    <span className="label-text-alt text-wun-primary">
+                      {errors.message.message}
+                    </span>
+                  </div>
+                )}
               </label>
               <Button
                 type="primary"
-                handleClick={() => handleSubmit()}
                 isLoading={isLoading}
                 classOverride="w-full"
               >
