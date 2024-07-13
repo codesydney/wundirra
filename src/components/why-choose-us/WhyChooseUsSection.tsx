@@ -20,13 +20,7 @@ const WhyChooseUsSection: FC = () => {
         <div className="relative flex flex-col h-full w-full">
           <div className="hidden lg:block lg:invisible" aria-hidden="true">
             <SectionTitle customClass="text-center lg:text-left lg:mb-8">
-              Why choose{' '}
-              <span
-                className="bg-gradient-to-r from-wun-primary via-wun-primary via-20% to-custom-light
-  bg-clip-text text-transparent"
-              >
-                Wundirra?
-              </span>{' '}
+              Why choose Wundirra?
             </SectionTitle>
             <p className="text-center lg:text-left mb-6">
               We are always ready to help by providing the best service for you.
@@ -43,7 +37,13 @@ const WhyChooseUsSection: FC = () => {
         </div>
         <div className="flex flex-col h-full overflow-hidden">
           <SectionTitle customClass="text-center lg:text-left lg:mb-8">
-            Why choose Wundirra?
+            Why choose{' '}
+            <span
+              className="bg-gradient-to-r from-wun-primary via-wun-primary via-20% to-custom-light
+  bg-clip-text text-transparent"
+            >
+              Wundirra?
+            </span>{' '}
           </SectionTitle>
           <p className="text-center lg:text-left mb-6">
             We are always ready to help by providing the best service for you.
