@@ -1,8 +1,8 @@
-import React from 'react'
+import { FC } from 'react'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { BsSend } from 'react-icons/bs'
 
-const ContactSection: React.FC = () => {
+const ContactSection: FC = () => {
   return (
     <section className="border-t border-b border-wun-primary">
       <div className="max-w-6xl mx-auto relative">
@@ -39,50 +39,68 @@ const ContactSection: React.FC = () => {
 
           <div className="p-12 md:pl-8">
             <form className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block mb-1 text-white">
-                  Name:
-                </label>
+              <label className="form-control">
+                <div className="label">
+                  <span className="label-text text-[16px] text-white">
+                    Name:
+                  </span>
+                </div>
                 <input
                   type="text"
-                  id="name"
                   placeholder="Your name"
-                  className="w-full p-2 border rounded text-white border-gray-700"
+                  className="input input-bordered"
                 />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-1 text-white">
-                  Email:
-                </label>
+                <div className="label">
+                  <span className="label-text-alt">Bottom Left label</span>
+                </div>
+              </label>
+
+              <label className="form-control">
+                <div className="label">
+                  <span className="label-text text-[16px] text-white">
+                    Email:
+                  </span>
+                </div>
                 <input
                   type="email"
-                  id="email"
-                  placeholder="youremail@email.com"
-                  className="w-full p-2 border rounded text-white border-gray-700"
+                  placeholder="example@email.com"
+                  className="input input-bordered"
                 />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block mb-1 text-white">
-                  Phone Number:
-                </label>
+                <div className="label">
+                  <span className="label-text-alt">Bottom Left label</span>
+                </div>
+              </label>
+
+              <label className="form-control">
+                <div className="label">
+                  <span className="label-text text-[16px] text-white">
+                    Phone number:
+                  </span>
+                </div>
                 <input
                   type="tel"
-                  id="phone"
-                  placeholder="+61 123 456 789"
-                  className="w-full p-2 border rounded text-white border-gray-700"
+                  placeholder="02 9999 9999"
+                  className="input input-bordered"
                 />
-              </div>
-              <div>
-                <label htmlFor="message" className="block mb-1 text-white">
-                  Message:
-                </label>
+                <div className="label">
+                  <span className="label-text-alt">Bottom Left label</span>
+                </div>
+              </label>
+
+              <label className="form-control">
+                <div className="label">
+                  <span className="label-text text-white text-[16px]">
+                    Message:
+                  </span>
+                </div>
                 <textarea
-                  id="message"
-                  rows={4}
-                  placeholder="Type your message here..."
-                  className="w-full p-2 border rounded text-white border-gray-700"
+                  className="textarea textarea-bordered h-24"
+                  placeholder="Bio"
                 ></textarea>
-              </div>
+                <div className="label">
+                  <span className="label-text-alt">Your bio</span>
+                </div>
+              </label>
               <button
                 type="submit"
                 className="w-full bg-wun-primary text-white py-2 px-4 rounded flex items-center justify-center hover:bg-[#2563EB] transition duration-300"

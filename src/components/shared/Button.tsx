@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({
   classOverride,
 }) => {
   const baseClasses =
-    'p-2 px-4 rounded text-custom-light group transition-all duration-200'
+    'btn p-2 px-4 rounded text-custom-light group transition-all duration-200'
 
   if (type === 'primary-hollow') {
     return (
