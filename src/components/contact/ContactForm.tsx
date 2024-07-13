@@ -1,23 +1,17 @@
 'use client'
 
-import { FC, useEffect } from 'react'
+import { FC, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { BsSend } from 'react-icons/bs'
+import emailjs from '@emailjs/browser'
+import { toast } from 'react-hot-toast'
 import Button from '@/components/shared/Button'
 import { contactSchema } from '@/schema'
 
-interface ContactFormProps {
-  onSubmit: (formData: any) => Promise<void>
-  isLoading: boolean
-  resetForm: boolean
-}
-
-const ContactForm: FC<ContactFormProps> = ({
-  onSubmit,
-  isLoading,
-  resetForm,
-}) => {
+const ContactForm: FC = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const form = useRef<any>(null)
   const {
     register,
     handleSubmit,
@@ -27,12 +21,33 @@ const ContactForm: FC<ContactFormProps> = ({
     resolver: yupResolver(contactSchema),
   })
 
-  useEffect(() => {
-    reset()
-  }, [resetForm, reset])
+  const handleFormSubmit = async () => {
+    if (form.current) {
+      setIsLoading(true)
+      try {
+        await emailjs.sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          form.current,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        )
+        toast.success('Message sent successfully')
+        reset()
+      } catch (error) {
+        console.error('Error sending email:', error)
+        toast.error('Failed to send message. Please try again.')
+      } finally {
+        setIsLoading(false)
+      }
+    }
+  }
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      ref={form}
+      className="space-y-4"
+      onSubmit={handleSubmit(handleFormSubmit)}
+    >
       <label className="form-control">
         <div className="label">
           <span className="label-text text-[16px] text-white">
@@ -42,6 +57,7 @@ const ContactForm: FC<ContactFormProps> = ({
         <input
           type="text"
           {...register('name')}
+          name="name"
           placeholder="Your name"
           className={`input input-bordered w-full ${
             errors.name
@@ -67,6 +83,7 @@ const ContactForm: FC<ContactFormProps> = ({
         <input
           type="email"
           {...register('email')}
+          name="email"
           placeholder="example@email.com"
           className={`input input-bordered w-full ${
             errors.email
@@ -85,26 +102,13 @@ const ContactForm: FC<ContactFormProps> = ({
 
       <label className="form-control">
         <div className="label">
-          <span className="label-text text-[16px] text-white">
-            Phone number
-          </span>
-        </div>
-        <input
-          type="tel"
-          {...register('phone')}
-          placeholder="+61 4444 333 222"
-          className="input input-bordered w-full border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-gray-300 text-white"
-        />
-      </label>
-
-      <label className="form-control">
-        <div className="label">
           <span className="label-text text-white text-[16px]">
             Message <span className="text-wun-primary">*</span>
           </span>
         </div>
         <textarea
           {...register('message')}
+          name="message"
           placeholder="Type your message here..."
           className={`textarea textarea-bordered h-24 ${
             errors.message
