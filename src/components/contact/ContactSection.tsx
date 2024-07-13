@@ -1,8 +1,20 @@
-import { FC } from 'react'
+'use client'
+
+import { FC, useState } from 'react'
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { BsSend } from 'react-icons/bs'
+import Button from '@/components/shared/Button'
 
 const ContactSection: FC = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  const handleSubmit = () => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
+  }
+
   return (
     <section className="border-t border-b border-wun-primary">
       <div className="max-w-6xl mx-auto relative">
@@ -24,9 +36,9 @@ const ContactSection: FC = () => {
               </div>
               <div className="flex items-center">
                 <FaEnvelope className="text-white mr-3" />
-                <span className="bg-wun-primary text-white py-2 px-4 rounded">
+                <Button type="primary" handleClick={() => {}}>
                   example@email.com
-                </span>
+                </Button>
               </div>
               <div className="flex items-center">
                 <FaMapMarkerAlt className="text-white mr-3" />
@@ -101,13 +113,19 @@ const ContactSection: FC = () => {
                   <span className="label-text-alt">Your bio</span>
                 </div>
               </label>
-              <button
-                type="submit"
-                className="w-full bg-wun-primary text-white py-2 px-4 rounded flex items-center justify-center hover:bg-[#2563EB] transition duration-300"
+              <Button
+                type="primary"
+                handleClick={() => handleSubmit()}
+                isLoading={isLoading}
+                classOverride="w-full"
               >
-                Send Message
-                <BsSend className="text-white ml-2" />
-              </button>
+                {isLoading ? (
+                  <span className="text-white">Sending...</span>
+                ) : (
+                  'Send Message'
+                )}
+                {!isLoading && <BsSend className="ml-2" />}
+              </Button>
             </form>
           </div>
         </div>
