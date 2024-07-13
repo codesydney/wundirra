@@ -1,6 +1,6 @@
 'use client'
 
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { BsSend } from 'react-icons/bs'
@@ -10,16 +10,26 @@ import { contactSchema } from '@/schema'
 interface ContactFormProps {
   onSubmit: (formData: any) => Promise<void>
   isLoading: boolean
+  resetForm: boolean
 }
 
-const ContactForm: FC<ContactFormProps> = ({ onSubmit, isLoading }) => {
+const ContactForm: FC<ContactFormProps> = ({
+  onSubmit,
+  isLoading,
+  resetForm,
+}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(contactSchema),
   })
+
+  useEffect(() => {
+    reset()
+  }, [resetForm, reset])
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
@@ -36,7 +46,7 @@ const ContactForm: FC<ContactFormProps> = ({ onSubmit, isLoading }) => {
           className={`input input-bordered w-full ${
             errors.name
               ? 'border-2 border-wun-primary focus:border-transparent focus:outline-wun-primary focus:ring-2 focus:ring-wun-primary'
-              : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white'
+              : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-gray-300 text-white'
           } focus:outline-primary`}
         />
         {errors.name && (
@@ -61,7 +71,7 @@ const ContactForm: FC<ContactFormProps> = ({ onSubmit, isLoading }) => {
           className={`input input-bordered w-full ${
             errors.email
               ? 'border-2 border-wun-primary focus:border-transparent focus:outline-wun-primary focus:ring-2 focus:ring-wun-primary'
-              : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white'
+              : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-gray-300 text-white'
           } focus:outline-primary`}
         />
         {errors.email && (
@@ -83,7 +93,7 @@ const ContactForm: FC<ContactFormProps> = ({ onSubmit, isLoading }) => {
           type="tel"
           {...register('phone')}
           placeholder="+61 4444 333 222"
-          className="input input-bordered w-full border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white"
+          className="input input-bordered w-full border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-gray-300 text-white"
         />
       </label>
 
@@ -99,7 +109,7 @@ const ContactForm: FC<ContactFormProps> = ({ onSubmit, isLoading }) => {
           className={`textarea textarea-bordered h-24 ${
             errors.message
               ? 'border-2 border-wun-primary focus:border-transparent focus:outline-wun-primary focus:ring-2 focus:ring-wun-primary'
-              : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-primary text-white'
+              : 'border-2 border-gray-300 focus:border-transparent focus:ring-2 focus:ring-gray-300 text-white'
           } focus:outline-primary`}
         ></textarea>
         {errors.message && (
