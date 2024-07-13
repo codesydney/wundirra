@@ -128,7 +128,7 @@ const ContactForm: FC = () => {
         {isLoading ? (
           <span className="text-white">Sending...</span>
         ) : (
-          'Send Message'
+          'Send message'
         )}
         {!isLoading && <BsSend className="ml-2" />}
       </Button>
