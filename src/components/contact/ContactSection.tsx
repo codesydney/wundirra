@@ -48,9 +48,12 @@ const ContactSection: FC = () => {
               </div>
               <div className="flex items-center">
                 <FaEnvelope className="text-white mr-3" />
-                <Button type="primary" handleClick={() => {}}>
+                <a
+                  href="mailto:example@email.com"
+                  className="bg-wun-primary/80 hover:bg-wun-primary text-custom-light p-2 px-4 rounded transition-all duration-200 cursor-pointer"
+                >
                   example@email.com
-                </Button>
+                </a>
               </div>
               <div className="flex items-center">
                 <FaMapMarkerAlt className="text-white mr-3" />
