@@ -16,19 +16,21 @@ const WhyChooseUsSection: FC = () => {
 
   return (
     <SectionWrapper>
-      <div className="grid md:grid-cols-2 gap-8 h-full md:h-[800px]">
-        <div className="relative flex items-center justify-center h-full">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 h-full md:h-auto">
+        <div className="relative flex flex-col h-full w-full">
           <Image
-            src="/assets/wundirraLogo.png"
+            src="/assets/wundirra.png"
             alt="Some picture here"
             width={800}
             height={800}
-            className="rounded-lg object-cover max-h-full w-auto"
+            className="w-[100%] h-auto max-w-[600px] mx-auto lg:max-w-unset"
           />
         </div>
         <div className="flex flex-col h-full overflow-hidden">
-          <SectionTitle>Why choose us ?</SectionTitle>
-          <p className="mb-6">
+          <SectionTitle customClass="text-center lg:text-left lg:mb-8">
+            Why choose Wundirra?
+          </SectionTitle>
+          <p className="text-center lg:text-left mb-6">
             We are always ready to help by providing the best service for you.
             We believe a good place to live can make your life better.
           </p>

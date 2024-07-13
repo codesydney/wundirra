@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
+import { FaChevronDown } from 'react-icons/fa'
 import { AccordionItem as AccordionItemType } from './accordionData'
 
 interface AccordionItemProps {
@@ -16,7 +16,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
   const Icon = item.icon
 
   return (
-    <div className="border border-gray-200 rounded-md mb-2">
+    <div className="border border-custom-light/20 rounded-md mb-2">
       <button
         className="flex justify-between items-center w-full text-left p-4"
         onClick={toggleAccordion}
@@ -25,13 +25,21 @@ const AccordionItem: FC<AccordionItemProps> = ({
           <Icon className="w-5 h-5 mr-3 text-wun-primary" />
           {item.title}
         </span>
-        {isOpen ? (
-          <FaChevronUp className="text-wun-primary" />
-        ) : (
-          <FaChevronDown className="text-wun-primary" />
-        )}
+        <FaChevronDown
+          className={`text-wun-primary min-w-5 min-h-5 w-5 h-5 transition-all duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
       </button>
-      {isOpen && <div className="px-4 pb-4 text-white">{item.content}</div>}
+      {isOpen && (
+        <div
+          className={`px-4 text-white grid transition-grid-rows duration-200 ${isOpen ? 'grid-rows-single-row' : 'grid-rows-0'}`}
+        >
+          <div className={`overflow-hidden ${isOpen ? 'pb-4' : ''}`}>
+            {item.content}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
