@@ -22,7 +22,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
         onClick={toggleAccordion}
       >
         <span className="font-medium flex items-center">
-          <Icon className="w-5 h-5 mr-3 text-wun-primary" />
+          <Icon className="w-5 h-5 mr-3 min-h-5 min-w-5 text-wun-primary" />
           {item.title}
         </span>
         <FaChevronDown
@@ -31,15 +31,13 @@ const AccordionItem: FC<AccordionItemProps> = ({
           }`}
         />
       </button>
-      {isOpen && (
-        <div
-          className={`px-4 text-white grid transition-grid-rows duration-200 ${isOpen ? 'grid-rows-single-row' : 'grid-rows-0'}`}
-        >
-          <div className={`overflow-hidden ${isOpen ? 'pb-4' : ''}`}>
-            {item.content}
-          </div>
+      <div
+        className={`px-4 text-white grid transition-accordion-item duration-200 ${isOpen ? 'grid-rows-single-row' : 'grid-rows-0'}`}
+      >
+        <div className={`overflow-hidden ${isOpen ? 'pb-4' : ''}`}>
+          {item.content}
         </div>
-      )}
+      </div>
     </div>
   )
 }

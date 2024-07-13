@@ -18,6 +18,21 @@ const WhyChooseUsSection: FC = () => {
     <SectionWrapper>
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 h-full md:h-auto">
         <div className="relative flex flex-col h-full w-full">
+          <div className="hidden lg:block lg:invisible" aria-hidden="true">
+            <SectionTitle customClass="text-center lg:text-left lg:mb-8">
+              Why choose{' '}
+              <span
+                className="bg-gradient-to-r from-wun-primary via-wun-primary via-20% to-custom-light
+  bg-clip-text text-transparent"
+              >
+                Wundirra?
+              </span>{' '}
+            </SectionTitle>
+            <p className="text-center lg:text-left mb-6">
+              We are always ready to help by providing the best service for you.
+              We believe a good place to live can make your life better.
+            </p>
+          </div>
           <Image
             src="/assets/wundirra.png"
             alt="Some picture here"
