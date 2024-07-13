@@ -31,7 +31,13 @@ const ContactForm: FC = () => {
           form.current,
           process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
         )
-        toast.success('Message sent successfully')
+        toast('Message sent successfully', {
+          style: {
+            borderRadius: '10px',
+            background: '#FFF',
+            color: '#FC65C4',
+          },
+        })
         reset()
       } catch (error) {
         console.error('Error sending email:', error)
