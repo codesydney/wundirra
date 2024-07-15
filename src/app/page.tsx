@@ -5,6 +5,7 @@ import AboutSection from '@/components/about/AboutSection'
 import ExpertiseSection from '@/components/expertise/ExpertiseSection'
 import WhyChooseUsSection from '@/components/why-choose-us/WhyChooseUsSection'
 import ContactSection from '@/components/contact/ContactSection'
+import FooterSection from '@/components/footer/FooterSection'
 
 const Home: FC = () => {
   return (
@@ -15,6 +16,7 @@ const Home: FC = () => {
       <ExpertiseSection />
       <WhyChooseUsSection />
       <ContactSection />
+      <FooterSection />
     </div>
   )
 }
