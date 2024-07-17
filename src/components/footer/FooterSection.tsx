@@ -3,9 +3,9 @@ import { FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 const FooterSection: FC = () => {
   return (
-    <div className="flex p-[45px]">
-      <div className="flex-1 flex items-center">
-        Crafted by{' '}
+    <div className="flex flex-col md:flex-row p-[45px]">
+      <div className="flex-1 flex items-center mb-[15px] md:mb-0 justify-center md:justify-start">
+        <span className="text-white font-bold">Crafted by </span>
         <a
           href="https://www.code.sydney/"
           target="_blank"
@@ -15,7 +15,7 @@ const FooterSection: FC = () => {
           Code.Sydney
         </a>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 justify-center md:justify-start">
         <a
           href="#"
           target="_blank"
