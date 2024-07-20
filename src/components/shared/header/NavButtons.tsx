@@ -1,10 +1,21 @@
 'use client'
+
+import { FC } from 'react'
 import Button from '@/components/shared/Button'
 
-export default function NavButtons() {
+const NavButtons: FC = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <div className="">
-      <Button handleClick={() => true}>Contact</Button>
+      <Button handleClick={scrollToContact}>Contact</Button>
     </div>
   )
 }
+
+export default NavButtons
