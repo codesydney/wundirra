@@ -4,7 +4,10 @@ import ContactForm from '@/components/contact/ContactForm'
 
 const ContactSection: FC = () => {
   return (
-    <section className="border-t border-b border-wun-primary">
+    <section
+      className="border-t border-b border-wun-primary"
+      id="contact-section"
+    >
       <div className="max-w-6xl mx-auto relative">
         <div
           className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-wun-primary"
