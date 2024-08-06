@@ -1,4 +1,4 @@
-const statements = [1, 2, 3, 4, 5, 6, 7, 8]
+const statements = ['Wisdom', 'Connection', 'Self-Determination', 'Empowerment']
 
 export default function HeroSlider() {
   return (
@@ -16,7 +16,7 @@ export default function HeroSlider() {
               >
                 <div className="flex gap-2 items-center">
                   <span className="w-2 h-2  xl:w-4 xl:h-4 rounded-full bg-custom-dark"></span>
-                  The Statement {index}
+                  {statements[index]}
                 </div>
               </li>
             )
@@ -32,7 +32,7 @@ export default function HeroSlider() {
               >
                 <div className="flex gap-2 items-center">
                   <span className="w-2 h-2  xl:w-4 xl:h-4 rounded-full bg-custom-dark"></span>
-                  The Statement {index}
+                  {statements[index]}
                 </div>
               </li>
             )
