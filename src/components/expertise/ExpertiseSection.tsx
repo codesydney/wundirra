@@ -94,17 +94,14 @@ const ExpertiseSection: FC = () => {
             )
           })}
         <div className="col-span-2 bg-custom-light rounded-lg overflow-hidden border-solid border-[1px] border-wun-primary ">
-          <div className="h-full p-4 py-8 md:p-8 lg:py-12 bg-wun-primary  backdrop-blur-xl flex flex-col gap-8">
+          <div className="h-full p-4 py-8 md:p-8 lg:py-12 bg-gray-200  backdrop-blur-xl flex flex-col gap-8">
             <div className="">
-              <h3 className="mb-2 text-2xl font-bold">Need Our Expertise?</h3>
+              <h3 className="mb-2 text-2xl font-bold text-wun-primary">
+                Need Our Expertise?
+              </h3>
             </div>
             <div className="self-start">
-              <Button
-                handleClick={scrollToContact}
-                classOverride={'bg-[#fff] text-wun-primary hover:bg-gray-50'}
-              >
-                Lets Connect!
-              </Button>
+              <Button handleClick={scrollToContact}>Lets Connect!</Button>
             </div>
           </div>
         </div>
