@@ -2,7 +2,6 @@ import { FC } from 'react'
 import Image from 'next/image'
 import SectionTitle from '../shared/SectionTitle'
 import SectionWrapper from '../shared/SectionWrapper'
-import LinkButton from '../shared/LinkButton'
 
 const AboutSection: FC = () => {
   return (
@@ -35,7 +34,7 @@ const AboutSection: FC = () => {
               self-determination and lead with confidence.
             </li>
           </ul>
-          <LinkButton href="/">Join us!</LinkButton>
+          {/* <LinkButton href="/">Join us!</LinkButton> */}
         </div>
         <div className="flex justify-center">
           <Image

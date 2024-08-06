@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { FaPhoneAlt } from 'react-icons/fa'
 import LinkButton from '../shared/LinkButton'
 import SectionWrapper from '@/components/shared/SectionWrapper'
 
@@ -23,20 +22,13 @@ export default function HeroSection() {
             </span>
           </h1>
           <p className=" text-center max-w-[600px] mx-auto mb-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
-            obcaecati odit. Asperiores, autem! Blanditiis cupiditate voluptates
-            rerum assumenda cum dignissimos alias porro animi, esse asperiores.
-            Reiciendis soluta molestiae cupiditate adipisci?
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
+            Wiradjuri for... "to stand in one's own light". Survivor led & Women
+            led Collective, Aboriginal Owned & Led, Purpose Driven, Community
+            Focussed, Lived & Professional Experience.
           </p>
           <div className="flex justify-center gap-6 items-center">
             <LinkButton href="/">Reach out!</LinkButton>
-            <LinkButton
-              type="underline-primary"
-              classOverride="flex items-center gap-2 px-0 rounded-none"
-              href="/"
-            >
-              <FaPhoneAlt /> 04010203045
-            </LinkButton>
           </div>
           {/* Relative container for the butterfly assests */}
           <div className="flex space-between relative">

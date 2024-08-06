@@ -91,15 +91,9 @@ const ExpertiseSection: FC = () => {
             )
           })}
         <div className="col-span-2 bg-custom-light rounded-lg overflow-hidden border-solid border-[1px] border-wun-primary ">
-          <div className="h-full p-4 py-8 md:p-8 lg:py-12 bg-wun-primary  backdrop-blur-xl flex flex-col gap-8 items-center">
+          <div className="h-full p-4 py-8 md:p-8 lg:py-12 bg-wun-primary  backdrop-blur-xl flex flex-col gap-8">
             <div className="">
               <h3 className="mb-2 text-2xl font-bold">Need Our Expertise?</h3>
-              <p className="">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Eligendi expedita nobis pariatur dicta quia illum tempora rem,
-                tempore aut, itaque nihil sapiente dolores corporis a impedit
-                asperiores obcaecati nam sint.
-              </p>
             </div>
             <div className="self-start">
               <LinkButton classOverride="font-bold" type="secondary" href="/">
