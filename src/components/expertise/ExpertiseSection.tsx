@@ -11,8 +11,8 @@ import { scrollToContact } from '@/helpers'
 const expertiseData = [
   {
     text: 'Youth work',
-    icon: '',
-    href: '/assets/youthIcon.svg',
+    icon: FaRibbon,
+    href: '',
   },
   {
     text: 'Domestic violence',
