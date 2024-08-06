@@ -99,7 +99,12 @@ const ExpertiseSection: FC = () => {
               <h3 className="mb-2 text-2xl font-bold">Need Our Expertise?</h3>
             </div>
             <div className="self-start">
-              <Button handleClick={scrollToContact}>Lets Connect!</Button>
+              <Button
+                handleClick={scrollToContact}
+                classOverride={'bg-[#fff] text-wun-primary hover:bg-gray-50'}
+              >
+                Lets Connect!
+              </Button>
             </div>
           </div>
         </div>

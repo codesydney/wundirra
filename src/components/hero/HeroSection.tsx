@@ -1,6 +1,9 @@
+'use client'
+
 import Image from 'next/image'
-import LinkButton from '../shared/LinkButton'
 import SectionWrapper from '@/components/shared/SectionWrapper'
+import Button from '@/components/shared/Button'
+import { scrollToContact } from '@/helpers'
 
 export default function HeroSection() {
   return (
@@ -28,7 +31,7 @@ export default function HeroSection() {
             Focussed, Lived & Professional Experience.
           </p>
           <div className="flex justify-center gap-6 items-center">
-            <LinkButton href="/">Reach out!</LinkButton>
+            <Button handleClick={scrollToContact}>Reach out!</Button>
           </div>
           {/* Relative container for the butterfly assests */}
           <div className="flex space-between relative">
