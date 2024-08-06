@@ -1,15 +1,18 @@
+'use client'
+
 import { FC } from 'react'
 import { FaRibbon } from 'react-icons/fa'
 import Image from 'next/image'
 import SectionWrapper from '../shared/SectionWrapper'
 import SectionTitle from '../shared/SectionTitle'
-import LinkButton from '../shared/LinkButton'
+import Button from '@/components/shared/Button'
+import { scrollToContact } from '@/helpers'
 
 const expertiseData = [
   {
     text: 'Youth work',
-    icon: '',
-    href: '/assets/youthIcon.svg',
+    icon: FaRibbon,
+    href: '',
   },
   {
     text: 'Domestic violence',
@@ -91,20 +94,17 @@ const ExpertiseSection: FC = () => {
             )
           })}
         <div className="col-span-2 bg-custom-light rounded-lg overflow-hidden border-solid border-[1px] border-wun-primary ">
-          <div className="h-full p-4 py-8 md:p-8 lg:py-12 bg-wun-primary  backdrop-blur-xl flex flex-col gap-8 items-center">
+          <div className="h-full p-4 py-8 md:p-8 lg:py-12 bg-wun-primary  backdrop-blur-xl flex flex-col gap-8">
             <div className="">
               <h3 className="mb-2 text-2xl font-bold">Need Our Expertise?</h3>
-              <p className="">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Eligendi expedita nobis pariatur dicta quia illum tempora rem,
-                tempore aut, itaque nihil sapiente dolores corporis a impedit
-                asperiores obcaecati nam sint.
-              </p>
             </div>
             <div className="self-start">
-              <LinkButton classOverride="font-bold" type="secondary" href="/">
+              <Button
+                handleClick={scrollToContact}
+                classOverride={'bg-[#fff] text-wun-primary hover:bg-gray-50'}
+              >
                 Lets Connect!
-              </LinkButton>
+              </Button>
             </div>
           </div>
         </div>

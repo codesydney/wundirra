@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import Image from 'next/image'
 import AccordionItem from './AccordionItem'
 import { accordionData } from './accordionData'
@@ -8,12 +8,6 @@ import SectionWrapper from '@/components/shared/SectionWrapper'
 import SectionTitle from '@/components/shared/SectionTitle'
 
 const WhyChooseUsSection: FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
-
   return (
     <SectionWrapper>
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 h-full md:h-auto">
@@ -52,12 +46,7 @@ const WhyChooseUsSection: FC = () => {
           <div className="overflow-y-auto flex-grow">
             <div className="space-y-2">
               {accordionData.map((item, index) => (
-                <AccordionItem
-                  key={index}
-                  item={item}
-                  isOpen={openIndex === index}
-                  toggleAccordion={() => toggleAccordion(index)}
-                />
+                <AccordionItem key={index} item={item} />
               ))}
             </div>
           </div>
