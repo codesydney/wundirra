@@ -1,9 +1,12 @@
+'use client'
+
 import { FC } from 'react'
 import { FaRibbon } from 'react-icons/fa'
 import Image from 'next/image'
 import SectionWrapper from '../shared/SectionWrapper'
 import SectionTitle from '../shared/SectionTitle'
-import LinkButton from '../shared/LinkButton'
+import Button from '@/components/shared/Button'
+import { scrollToContact } from '@/helpers'
 
 const expertiseData = [
   {
@@ -96,9 +99,7 @@ const ExpertiseSection: FC = () => {
               <h3 className="mb-2 text-2xl font-bold">Need Our Expertise?</h3>
             </div>
             <div className="self-start">
-              <LinkButton classOverride="font-bold" type="secondary" href="/">
-                Lets Connect!
-              </LinkButton>
+              <Button handleClick={scrollToContact}>Lets Connect!</Button>
             </div>
           </div>
         </div>
